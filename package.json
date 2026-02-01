@@ -1,0 +1,33 @@
+{
+  "name": "neuro-english",
+  "version": "0.0.0",
+  "description": "Терминальный тренажёр для изучения английских фраз",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "init-db": "node scripts/init-db.js",
+    "dev": "node --watch src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "fix": "eslint . --fix"
+  },
+  "author": {
+    "name": "Evgeniy Politiko",
+    "email": "Jhon-mosk@yandex.ru",
+    "url": "https://jhon-mosk.ru/"
+  },
+  "engines": {
+    "node": "^22.20.0",
+    "npm": "^11.6.1"
+  },
+  "imports": {
+    "#root/*.js": "./*.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^12.6.2"
+  },
+  "devDependencies": {
+    "neostandard": "^0.12.2"
+  }
+}
