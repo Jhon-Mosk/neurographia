@@ -2,6 +2,7 @@
 
 const readline = require('node:readline');
 const { getNextPhrase, updateStatus, getStats, closeDB } = require('./db');
+const { fromMs } = require('#root/utils/time-convector.js');
 
 /**
  * Общая статистика БД
@@ -85,11 +86,11 @@ class CLI {
     console.log(`   Изучено: ${this.sessionStats.completed}`);
     console.log(`   Отложено: ${this.sessionStats.skipped}`);
 
-    const duration = Math.round(
-      (Date.now() - this.sessionStats.startTime) / 1000,
+    const duration = fromMs(
+      Math.round(Date.now() - this.sessionStats.startTime),
     );
 
-    console.log(`   Время сессии: ${duration} сек\n`);
+    console.log(`   Время сессии: ${duration}\n`);
   }
 
   /**
