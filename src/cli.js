@@ -1,6 +1,6 @@
 'use strict';
 
-const readline = require('node:readline');
+const readline = require('node:readline/promises');
 const { getNextPhrase, updateStatus, getStats, closeDB } = require('./db');
 const { fromMs } = require('#root/utils/time-convector.js');
 
@@ -131,12 +131,9 @@ class CLI {
   /**
    * Ввод строки
    */
-  askQuestion(question) {
-    return new Promise((resolve) => {
-      this.rl.question(question, (answer) => {
-        resolve(answer.trim().toLowerCase());
-      });
-    });
+  async askQuestion(question) {
+    const answer = await this.rl.question(question);
+    return answer.trim().toLowerCase();
   }
 
   /**
