@@ -132,6 +132,7 @@ class CLI {
    * Ввод строки
    */
   async askQuestion(question) {
+    await this.rl.clearLine(0);
     const answer = await this.rl.question(question);
     return answer.trim().toLowerCase();
   }
